@@ -1,15 +1,13 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Button, Typography, Box } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 const AuthButton = () => {
-  const history = useHistory();
   const { user, signin } = useAuthContext();
   const onLoginButtonClick = () => {
     signin(() => {
-      history.push("/profile");
+      window.location.pathname = "/api/oath/login";
     });
   };
 
